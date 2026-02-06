@@ -91,4 +91,4 @@ def run_bulk():
 
 if __name__ == "__main__":
     # run_single() 단일
-    run_bulk() # 다중
+    run_bulk() # 다중 
