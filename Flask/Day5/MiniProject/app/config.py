@@ -1,13 +1,16 @@
-# Flask 설정 파일
-
 import os
 
-# instance 폴더 경로
-INSTANCE_DIR = os.path.join(os.path.dirname(__file__), "..", "instance")
-
-# 폴더가 없으면 생성
-os.makedirs(INSTANCE_DIR, exist_ok=True)
-
 class Config:
-    """환경 설정 (로컬 SQLite 기본값)"""
-    SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL", "sqlite:///instance/reviews.db")
+    
+    BASE_DIR = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
+    
+    INSTANCE_DIR = os.path.join(BASE_DIR, "instance")
+    
+    os.makedirs(INSTANCE_DIR, exist_ok=True)
+    
+    SQLALCHEMY_DATABASE_URI = os.getenv(
+        "DATABASE_URL", 
+        f"sqlite:///{os.path.join(INSTANCE_DIR, 'reviews.db')}"
+    )
+    
+    SQLALCHEMY_TRACK_MODIFICATIONS = False

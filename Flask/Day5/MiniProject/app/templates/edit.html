@@ -16,7 +16,7 @@
                     <input
                         type="text"
                         name="title"
-                        value="{{ 리뷰 제목 }}"
+                        value="{{ r.title }}"
                         required
                         class="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-200"
                     />
@@ -29,7 +29,7 @@
                         rows="4"
                         class="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-200"
                     >
-                        {{ 리뷰 내용 }}
+                        {{ r.content }}
                     </textarea>
                 </div>
                 <div>
@@ -39,7 +39,7 @@
                         name="rating"
                         min="1"
                         max="5"
-                        value="{{ 리뷰 별점 }}"
+                        value="{{ r.rating }}"
                         required
                         class="w-24 border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-200"
                     />
